@@ -24,7 +24,7 @@ public class calculator {
             case '/':
                 if(b==0)
                 {
-                    System.out.println("INF");
+                    System.err.println("INF");
                 }
                 else
                 {
@@ -35,7 +35,7 @@ public class calculator {
                 System.out.println(a%b);
                 break;
             default :
-                System.out.println("NA");
+                System.err.println("NA");
 
         }
            sc.close();     
