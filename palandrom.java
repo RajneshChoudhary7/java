@@ -8,7 +8,7 @@ public class palandrom {
         int rem=0;
         int  oldnum=num;
         int palan=0;
-        while(num>)
+        while(num>0)
         {
             rem=num%10;
             palan=palan*10+rem;
