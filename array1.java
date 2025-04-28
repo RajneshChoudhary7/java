@@ -15,6 +15,7 @@ public class array1 {
         {
             System.out.println(arr[i]);
         }
+        sc.close();
 
     }
 }
