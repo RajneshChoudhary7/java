@@ -9,7 +9,7 @@ public class fun1 {
         int result = obj.add(5, 10);
         System.out.println("The result of static method is: " + result);
         fun1 obj1= new fun1();
-        System.out.println(a);
+        System.out.println();
     }
 
 }
