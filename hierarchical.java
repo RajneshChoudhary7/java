@@ -1,3 +1,6 @@
-public class hierarchical {
+
+
+public class hierarchical 
+{}
+
     
-}
