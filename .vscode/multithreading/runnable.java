@@ -15,7 +15,6 @@ public class runnable {
             // } catch (InterruptedException e) {
             //     e.printStackTrace();
             // }
-
             System.out.println("rajnesh in main");
     }
 }
