@@ -1,5 +1,5 @@
 package bankproject;
-
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -18,6 +18,7 @@ class Transaction {
         return String.format("%-10s ₹%-10.2f %s", type, amount, timestamp);
     }
 }
+
 
 class Account {
     private String name;
@@ -146,6 +147,10 @@ public class BankAppATM {
             }
             System.out.print("❌ Name cannot be empty. Please enter your name: ");
         }
+
+        //here i want to save this account details in file using file handling.
+
+
     }
 
     private static int generateAccountNumber() {
@@ -194,6 +199,7 @@ public class BankAppATM {
             }
         }
     }
+    
 
     private static void performDeposit(Account acc) {
         double amount = getValidAmount("Enter amount to deposit: ₹");
