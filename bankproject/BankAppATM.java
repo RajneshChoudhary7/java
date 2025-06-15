@@ -131,6 +131,7 @@ public class BankAppATM {
                 case 7 -> viewLoanDetails(acc);
                 case 8 -> viewFixedDepositDetails(acc);
                 case 9 -> System.out.println("\n👋 Thank you for using Rajnesh King ATM. Goodbye!");
+                case 10 -> saveAccountToFile(acc);
                 default -> System.out.println("❌ Invalid choice. Please try again.");
             }
         } while (choice != 9);
@@ -168,6 +169,7 @@ public class BankAppATM {
         System.out.println("7. View Loan Details");
         System.out.println("8. View Fixed Deposit Details");
         System.out.println("9. Exit");
+        System.out.println("10. Save account details");
         System.out.print("\ud83d\udd0e Choose an option: ");
     }
 
@@ -240,6 +242,31 @@ public class BankAppATM {
             System.out.println("📄 No active fixed deposits at the moment.");
         } else {
             System.out.printf("💳 Fixed Deposit Amount: ₹%.2f%n", acc.getFixedDepositAmount());
+        }
+    }
+
+    private static void saveAccountToFile(Account acc) {
+        String fileName = "Account_" + acc.getAccountNumber() + ".txt";
+        try (java.io.PrintWriter writer = new java.io.PrintWriter(new java.io.FileWriter(fileName))) {
+            writer.println("Account Details");
+            writer.println("==============");
+            writer.println("Name: " + acc.getName());
+            writer.println("Account Number: " + acc.getAccountNumber());
+            writer.printf("Balance: ₹%.2f%n", acc.getBalance());
+            writer.printf("Loan Amount: ₹%.2f%n", acc.getLoanAmount());
+            writer.printf("Fixed Deposit Amount: ₹%.2f%n", acc.getFixedDepositAmount());
+            writer.println();
+            writer.println("Transaction History:");
+            writer.println("---------------------------------------------");
+            writer.printf("%-10s %-12s %s%n", "Type", "Amount", "Timestamp");
+            writer.println("---------------------------------------------");
+            for (Transaction t : acc.getTransactions()) {
+                writer.println(t);
+            }
+            writer.println("---------------------------------------------");
+            System.out.println("✅ Account details saved to file: " + fileName);
+        } catch (Exception e) {
+            System.out.println("❌ Error saving account details: " + e.getMessage());
         }
     }
 }
